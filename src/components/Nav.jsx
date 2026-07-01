@@ -32,7 +32,7 @@ export default function Nav() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 md:py-5 flex items-center justify-between">
         <Link to="/" className="flex items-baseline gap-2 text-on-dark">
           <span className="font-extrabold text-2xl tracking-tight border-b-2 border-accent pb-0.5 leading-none">DND</span>
-          <span className="font-mono text-sm uppercase tracking-widest text-accent">Prime</span>
+          <span className="font-mono text-sm uppercase tracking-widest text-accent">Living</span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-7">

@@ -150,7 +150,7 @@ export default function EstateDetail() {
               <p className="font-mono text-label-sm uppercase text-on-dark/50 mb-6">{property.priceNote}</p>
 
               <p className="text-body-md text-on-dark/70 mb-6 leading-relaxed">
-                Interested in this property? Message the DND Prime team for availability,
+                Interested in this property? Message the DND Living team for availability,
                 viewings, and full details.
               </p>
 

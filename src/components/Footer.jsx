@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-baseline gap-2 mb-5">
               <span className="font-extrabold text-2xl tracking-tight border-b-2 border-accent pb-0.5 leading-none text-on-dark">DND</span>
-              <span className="font-mono text-label-sm uppercase tracking-widest text-accent">Prime</span>
+              <span className="font-mono text-label-sm uppercase tracking-widest text-accent">Living</span>
             </div>
             <p className="text-on-dark/60 text-body-md max-w-sm leading-relaxed mb-2">
               Properties, short lets, cleaning, and maintenance under one roof.
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 pt-8 border-t border-line flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-          <span className="font-mono text-label-sm uppercase text-on-dark/40">© {new Date().getFullYear()} DND Prime</span>
+          <span className="font-mono text-label-sm uppercase text-on-dark/40">© {new Date().getFullYear()} DND Living</span>
           <span className="font-mono text-label-sm uppercase text-on-dark/40">No job too small — quality is our promise</span>
         </div>
       </div>
