@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { estateListings } from "../data/properties";
 import FadeIn from "../components/FadeIn";
@@ -8,21 +8,25 @@ const filters = ["All", "To Rent", "For Sale"];
 function CardCarousel({ images, alt }) {
   const [idx, setIdx] = useState(0);
   const total = images.length;
+  const touchStartX = useRef(null);
 
-  const prev = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIdx((i) => (i - 1 + total) % total);
-  };
+  const prev = (e) => { e.preventDefault(); e.stopPropagation(); setIdx((i) => (i - 1 + total) % total); };
+  const next = (e) => { e.preventDefault(); e.stopPropagation(); setIdx((i) => (i + 1) % total); };
 
-  const next = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIdx((i) => (i + 1) % total);
+  const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) diff > 0 ? setIdx((i) => (i + 1) % total) : setIdx((i) => (i - 1 + total) % total);
+    touchStartX.current = null;
   };
 
   return (
-    <div className="aspect-[4/3] overflow-hidden bg-surface-low relative group/carousel">
+    <div
+      className="aspect-[4/3] overflow-hidden bg-surface-low relative group/carousel"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
       <img
         key={idx}
         src={images[idx]}
@@ -35,14 +39,14 @@ function CardCarousel({ images, alt }) {
         <>
           <button
             onClick={prev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
             aria-label="Previous image"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
           </button>
           <button
             onClick={next}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
             aria-label="Next image"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>

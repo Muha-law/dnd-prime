@@ -4,7 +4,7 @@ import { CONTACT } from "../data/group";
 function PhonePopup({ onClose, dir = "up" }) {
   const pos = dir === "up" ? "bottom-full mb-2" : "top-full mt-2";
   return (
-    <div className={`absolute left-0 ${pos} bg-surface border border-line z-50 min-w-[180px] shadow-lg`}>
+    <div className={`absolute left-1/2 -translate-x-1/2 ${pos} bg-surface border border-line z-50 w-48 shadow-lg`}>
       <a
         href={`tel:${CONTACT.whatsapp.replace(/\s/g, "")}`}
         className="flex items-center gap-3 px-4 py-3.5 text-body-md text-on-dark hover:bg-surface-low transition-colors"
@@ -35,7 +35,11 @@ function useOutsideClick(ref, handler) {
   useEffect(() => {
     const listener = (e) => { if (!ref.current?.contains(e.target)) handler(); };
     document.addEventListener("mousedown", listener);
-    return () => document.removeEventListener("mousedown", listener);
+    document.addEventListener("touchstart", listener);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
+    };
   }, [ref, handler]);
 }
 

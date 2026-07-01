@@ -200,7 +200,25 @@ function QuoteEstimator() {
 
   return (
     <div className="grid lg:grid-cols-12 gap-10">
-      <div className="lg:col-span-7 space-y-10">
+      {/* Mobile sticky bottom price bar */}
+      {total !== null && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-surface border-t border-line px-5 py-4 flex items-center justify-between gap-4">
+          <div>
+            <p className="font-mono text-label-sm uppercase text-on-dark/40">Estimated total</p>
+            <p className="text-2xl font-extrabold text-accent">£{animatedTotal}</p>
+          </div>
+          <a
+            href={`https://wa.me/${CONTACT.whatsappIntl}?text=${waMessage}`}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-accent text-on-surface px-5 py-3 text-body-md font-semibold hover:bg-accent-bright transition-colors whitespace-nowrap"
+          >
+            Book on WhatsApp
+          </a>
+        </div>
+      )}
+
+      <div className="lg:col-span-7 space-y-10 pb-32 lg:pb-0">
         {/* Step 1 */}
         <div>
           <p className="font-mono text-label-md uppercase text-on-dark/40 mb-4">01 · Type of clean</p>
@@ -247,7 +265,7 @@ function QuoteEstimator() {
                 <button
                   key={e.name}
                   onClick={() => toggleExtra(e.name)}
-                  className={"flex items-center justify-between border px-4 py-3 transition-colors " + (selected ? "border-accent bg-surface" : "border-line hover:border-accent")}
+                  className={"flex items-center justify-between border px-4 py-4 transition-colors " + (selected ? "border-accent bg-surface" : "border-line hover:border-accent")}
                 >
                   <span className="text-body-md text-on-dark/85">{e.name}</span>
                   <span className={"font-mono text-label-sm uppercase " + (selected ? "text-accent" : "text-on-dark/40")}>+£{e.price}</span>

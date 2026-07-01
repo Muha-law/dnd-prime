@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getEstate } from "../data/properties";
 import { CONTACT } from "../data/group";
@@ -9,6 +9,15 @@ export default function EstateDetail() {
   const property = getEstate(id);
   const [active, setActive] = useState(0);
   const images = property?.images.slice(1) ?? [];
+  const touchStartX = useRef(null);
+
+  const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) setActive((i) => diff > 0 ? (i + 1) % images.length : (i - 1 + images.length) % images.length);
+    touchStartX.current = null;
+  };
 
   if (!property) {
     return (
@@ -44,7 +53,7 @@ export default function EstateDetail() {
       {/* Gallery */}
       <section className="px-6 md:px-10 max-w-[1400px] mx-auto mb-10 md:mb-14">
         {/* Main image with carousel controls */}
-        <div className="aspect-[16/9] overflow-hidden bg-surface-low mb-3 relative group">
+        <div className="aspect-[16/9] overflow-hidden bg-surface-low mb-3 relative group" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <img
             key={active}
             src={images[active]}
@@ -59,14 +68,14 @@ export default function EstateDetail() {
           </span>
           <button
             onClick={() => setActive((i) => (i - 1 + images.length) % images.length)}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 text-on-dark flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-background"
             aria-label="Previous image"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
           </button>
           <button
             onClick={() => setActive((i) => (i + 1) % images.length)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/70 text-on-dark flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-background"
             aria-label="Next image"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
