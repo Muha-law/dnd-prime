@@ -1,8 +1,68 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { estateListings } from "../data/properties";
+import FadeIn from "../components/FadeIn";
 
 const filters = ["All", "To Rent", "For Sale"];
+
+function CardCarousel({ images, alt }) {
+  const [idx, setIdx] = useState(0);
+  const total = images.length;
+
+  const prev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIdx((i) => (i - 1 + total) % total);
+  };
+
+  const next = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIdx((i) => (i + 1) % total);
+  };
+
+  return (
+    <div className="aspect-[4/3] overflow-hidden bg-surface-low relative group/carousel">
+      <img
+        key={idx}
+        src={images[idx]}
+        alt={`${alt} ${idx + 1}`}
+        loading="lazy"
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 animate-image-fade"
+      />
+
+      {total > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+            aria-label="Previous image"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-background/70 text-on-dark flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-background"
+            aria-label="Next image"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIdx(i); }}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${i === idx ? "bg-accent" : "bg-on-dark/40"}`}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function Properties() {
   const [deal, setDeal] = useState("All");
@@ -51,11 +111,16 @@ export default function Properties() {
             {list.length} {list.length === 1 ? "property" : "properties"} available
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {list.map((p) => (
-              <Link key={p.id} to={`/properties/${p.id}`} className="group block bg-surface border border-line hover:border-accent transition-colors">
-                <div className="aspect-[4/3] overflow-hidden bg-surface-low relative">
-                  <img src={p.cover} alt={p.name} loading="lazy" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-500" />
-                  <span className="absolute top-3 left-3 bg-accent text-on-surface px-3 py-1 font-mono text-label-sm uppercase">{p.deal}</span>
+            {list.map((p, i) => (
+              <FadeIn key={p.id} delay={i * 100}>
+              <Link to={`/properties/${p.id}`} className="group block bg-surface border border-line hover:border-accent transition-colors h-full">
+                <div className="relative">
+                  <CardCarousel images={p.images} alt={p.name} />
+                  {p.letAgreed ? (
+                    <span className="absolute top-3 left-3 z-10 bg-on-dark text-background px-3 py-1 font-mono text-label-sm uppercase">Let Agreed</span>
+                  ) : (
+                    <span className="absolute top-3 left-3 z-10 bg-accent text-on-surface px-3 py-1 font-mono text-label-sm uppercase">{p.deal}</span>
+                  )}
                 </div>
                 <div className="p-5">
                   <span className="font-mono text-label-sm uppercase text-on-dark/40">{p.building}</span>
@@ -67,6 +132,7 @@ export default function Properties() {
                   </div>
                 </div>
               </Link>
+              </FadeIn>
             ))}
           </div>
         </div>

@@ -40,7 +40,7 @@ export const arms = [
     tag: "Property repairs",
     blurb: "One call for all your maintenance needs, from plumbing and electrics to full property upkeep.",
     to: "/maintenance",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200&q=80",
   },
 ];
 
@@ -61,6 +61,21 @@ export const cleaningPackages = [
   { name: "Deep Clean", from: 120, blurb: "Top-to-bottom detail for a full reset." },
   { name: "End of Tenancy", from: 180, blurb: "Move-out ready, deposit-back standard." },
   { name: "Airbnb Turnaround", from: 45, blurb: "Fast, reliable changeovers between guests." },
+];
+
+export const cleaningQuoteTypes = [
+  { name: "Standard Clean", blurb: "Regular upkeep for a tidy, maintained home.", prices: { Studio: 60, "1 Bed": 75, "2 Bed": 95, "3 Bed": 115, "4 Bed+": 140 } },
+  { name: "Deep Clean", blurb: "Top-to-bottom detail for a full reset.", prices: { Studio: 120, "1 Bed": 150, "2 Bed": 190, "3 Bed": 230, "4 Bed+": 280 } },
+  { name: "End of Tenancy", blurb: "Move-out ready, deposit-back standard.", prices: { Studio: 180, "1 Bed": 220, "2 Bed": 280, "3 Bed": 340, "4 Bed+": 400 } },
+  { name: "Airbnb Turnaround", blurb: "Fast, reliable changeover between guests.", prices: { Studio: 45, "1 Bed": 60, "2 Bed": 80, "3 Bed": 100, "4 Bed+": 130 } },
+];
+
+export const cleaningQuoteExtras = [
+  { name: "Oven clean", price: 25 },
+  { name: "Fridge clean", price: 15 },
+  { name: "Carpet clean (per room)", price: 30 },
+  { name: "Window cleaning", price: 20 },
+  { name: "Garage / outbuilding", price: 40 },
 ];
 
 export const cleaningGallery = [

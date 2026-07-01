@@ -5,6 +5,8 @@ import {
   maintenanceWhy,
   CONTACT,
 } from "../data/group";
+import { PhoneCta } from "../components/PhoneLink";
+import FadeIn from "../components/FadeIn";
 
 export default function Maintenance() {
   return (
@@ -43,11 +45,13 @@ export default function Maintenance() {
             Skilled hands for <span className="font-semibold">every job.</span>
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {maintenanceServices.map((s) => (
-              <div key={s.name} className="border border-line p-6 hover:border-accent transition-colors">
-                <h3 className="text-base font-semibold mb-2 text-on-dark">{s.name}</h3>
-                <p className="text-body-md text-on-dark/60 leading-relaxed">{s.desc}</p>
-              </div>
+            {maintenanceServices.map((s, i) => (
+              <FadeIn key={s.name} delay={i * 80}>
+                <div className="border border-line p-6 hover:border-accent transition-colors h-full">
+                  <h3 className="text-base font-semibold mb-2 text-on-dark">{s.name}</h3>
+                  <p className="text-body-md text-on-dark/60 leading-relaxed">{s.desc}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -99,9 +103,7 @@ export default function Maintenance() {
             <p className="text-on-dark/60 text-body-md">Fast response · Fully insured · {CONTACT.coverage}.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href={`https://wa.me/${CONTACT.whatsappIntl}`} target="_blank" rel="noreferrer" className="bg-accent text-on-surface px-8 py-4 text-body-md font-semibold hover:bg-accent-bright transition-colors text-center whitespace-nowrap">
-              WhatsApp {CONTACT.whatsapp}
-            </a>
+            <PhoneCta />
             <Link to="/contact" className="border border-line text-on-dark px-8 py-4 text-body-md font-medium hover:border-accent transition-colors text-center whitespace-nowrap">
               Send a message
             </Link>

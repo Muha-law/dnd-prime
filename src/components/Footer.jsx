@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CONTACT } from "../data/group";
+import { PhoneLink } from "./PhoneLink";
 
 export default function Footer() {
   return (
@@ -13,9 +14,6 @@ export default function Footer() {
             </div>
             <p className="text-on-dark/60 text-body-md max-w-sm leading-relaxed mb-2">
               Properties, short lets, cleaning, and maintenance under one roof.
-            </p>
-            <p className="font-mono text-label-md uppercase text-accent/80 tracking-widest">
-              Drive N Discipline in everything we do
             </p>
           </div>
 
@@ -32,8 +30,8 @@ export default function Footer() {
           <div className="md:col-span-4">
             <span className="font-mono text-label-md uppercase text-on-dark/40 block mb-5">Get in touch</span>
             <ul className="space-y-3 text-body-md text-on-dark/75">
-              <li>WhatsApp / Call: <span className="text-on-dark">{CONTACT.whatsapp}</span></li>
-              <li>{CONTACT.email}</li>
+              <li>WhatsApp / Call: <PhoneLink className="text-on-dark" /></li>
+              <li><a href={`mailto:${CONTACT.email}`} className="hover:text-accent transition-colors">{CONTACT.email}</a></li>
               <li>Covering {CONTACT.coverage}</li>
             </ul>
           </div>

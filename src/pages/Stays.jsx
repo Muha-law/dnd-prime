@@ -2,7 +2,7 @@ import { useState } from "react";
 import { properties } from "../data/properties";
 import PropertyCard from "../components/PropertyCard";
 
-const areas = ["All areas", "Lekki Phase 1, Lagos", "Victoria Island, Lagos", "Ikoyi, Lagos"];
+const areas = ["All areas", "Birmingham City Centre", "The Mailbox", "Digbeth", "Jewellery Quarter"];
 
 export default function Stays() {
   const [area, setArea] = useState("All areas");
@@ -25,7 +25,7 @@ export default function Stays() {
             <span className="font-semibold"> ready to book.</span>
           </h1>
           <p className="text-body-md md:text-base text-on-dark/70 max-w-xl leading-relaxed">
-            A managed collection across Lagos. Filter by area, sort by price, and
+            A managed collection across Birmingham. Filter by area, sort by price, and
             message the team about any of them right from the page.
           </p>
         </div>

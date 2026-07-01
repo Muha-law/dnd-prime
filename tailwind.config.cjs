@@ -21,6 +21,9 @@ module.exports = {
       animation: {
         "slide-up": "slideUp 0.5s ease-out",
         "fade-in": "fadeIn 0.7s ease-out both",
+        "image-fade": "imageFade 0.35s ease-out",
+        "page-enter": "pageEnter 0.35s ease-out both",
+        "scale-in": "scaleIn 0.5s ease-out both",
       },
       keyframes: {
         slideUp: {
@@ -30,6 +33,18 @@ module.exports = {
         fadeIn: {
           "0%": { transform: "translateY(16px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        imageFade: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        pageEnter: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        scaleIn: {
+          "0%": { transform: "scaleX(0)", transformOrigin: "left" },
+          "100%": { transform: "scaleX(1)", transformOrigin: "left" },
         },
       },
       fontFamily: {

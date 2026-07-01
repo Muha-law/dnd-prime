@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { CONTACT } from "../data/group";
+import { PhoneLink } from "../components/PhoneLink";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -32,16 +34,18 @@ export default function Contact() {
             </p>
 
             <div className="space-y-6">
-              {[
-                { l: "WhatsApp / Call", v: "07903 824773" },
-                { l: "Email", v: "info.dnd.dnd@gmail.com" },
-                { l: "Covering", v: "Birmingham & surrounding areas" },
-              ].map((c) => (
-                <div key={c.l} className="border-b border-line pb-4">
-                  <div className="font-mono text-label-sm uppercase text-on-dark/40 mb-1">{c.l}</div>
-                  <div className="text-body-md md:text-base">{c.v}</div>
-                </div>
-              ))}
+              <div className="border-b border-line pb-4">
+                <div className="font-mono text-label-sm uppercase text-on-dark/40 mb-1">WhatsApp / Call</div>
+                <PhoneLink className="text-body-md md:text-base" dir="down" />
+              </div>
+              <div className="border-b border-line pb-4">
+                <div className="font-mono text-label-sm uppercase text-on-dark/40 mb-1">Email</div>
+                <a href={`mailto:${CONTACT.email}`} className="text-body-md md:text-base hover:text-accent transition-colors">{CONTACT.email}</a>
+              </div>
+              <div className="border-b border-line pb-4">
+                <div className="font-mono text-label-sm uppercase text-on-dark/40 mb-1">Covering</div>
+                <div className="text-body-md md:text-base">{CONTACT.coverage}</div>
+              </div>
             </div>
           </div>
 
