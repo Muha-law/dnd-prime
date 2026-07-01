@@ -2,10 +2,34 @@ import { Link } from "react-router-dom";
 import { arms, CONTACT } from "../data/group";
 import { PhoneCta } from "../components/PhoneLink";
 import FadeIn from "../components/FadeIn";
+import SEO from "../components/SEO";
+
+const LOCAL_BUSINESS = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "DND Living",
+  description:
+    "Properties, short lets, professional cleaning, and property maintenance in Birmingham.",
+  url: "https://dndliving.uk",
+  telephone: "+447903824773",
+  email: "info.dnd.dnd@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Birmingham",
+    addressRegion: "West Midlands",
+    addressCountry: "GB",
+  },
+  areaServed: { "@type": "City", name: "Birmingham" },
+  priceRange: "££",
+};
 
 export default function Hub() {
   return (
     <div>
+      <SEO
+        canonical="/"
+        jsonLd={LOCAL_BUSINESS}
+      />
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center pt-32 pb-16 px-6 md:px-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface-low/40 to-background" />

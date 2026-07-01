@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { properties } from "../data/properties";
 import PropertyCard from "../components/PropertyCard";
+import SEO from "../components/SEO";
 
 const areas = ["All areas", "Birmingham City Centre", "The Mailbox", "Digbeth", "Jewellery Quarter"];
 
@@ -14,6 +15,11 @@ export default function Stays() {
 
   return (
     <div className="pt-28 md:pt-36">
+      <SEO
+        title="Short Lets &amp; Serviced Apartments in Birmingham"
+        description="Short-term serviced accommodation across Birmingham — city centre, The Mailbox, Digbeth, and Jewellery Quarter. Flexible stays managed by DND Living."
+        canonical="/stays"
+      />
       {/* Header */}
       <section className="px-6 md:px-12 pb-10">
         <div className="max-w-[1400px] mx-auto">

@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 export default function About() {
   return (
     <div className="pt-28 md:pt-36">
+      <SEO
+        title="About DND Living"
+        description="Meet DND Living — Birmingham's trusted team for property management, short lets, professional cleaning, and property maintenance. One team, four services."
+        canonical="/about"
+      />
       {/* Intro */}
       <section className="px-6 md:px-12 pb-16 md:pb-24">
         <div className="max-w-[1400px] mx-auto">

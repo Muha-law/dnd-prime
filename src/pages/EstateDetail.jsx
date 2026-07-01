@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getEstate } from "../data/properties";
 import { CONTACT } from "../data/group";
 import { PhoneLink } from "../components/PhoneLink";
+import SEO from "../components/SEO";
 
 export default function EstateDetail() {
   const { id } = useParams();
@@ -30,6 +31,9 @@ export default function EstateDetail() {
     );
   }
 
+  const seoTitle = `${property.name} — ${property.building}`;
+  const seoDesc = `${property.deal === "For Sale" ? "For sale" : "To rent"}: ${property.description.slice(0, 155)}…`;
+
   const facts = [
     { l: "Type", v: property.type },
     { l: "Bedrooms", v: property.beds },
@@ -43,6 +47,11 @@ export default function EstateDetail() {
 
   return (
     <div className="pt-24 md:pt-28">
+      <SEO
+        title={seoTitle}
+        description={seoDesc}
+        canonical={`/properties/${property.id}`}
+      />
       {/* Breadcrumb */}
       <div className="px-6 md:px-10 max-w-[1400px] mx-auto mb-6">
         <Link to="/properties" className="font-mono text-label-md uppercase text-on-dark/50 hover:text-accent transition-colors">

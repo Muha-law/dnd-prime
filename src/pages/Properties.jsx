@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { estateListings } from "../data/properties";
 import FadeIn from "../components/FadeIn";
+import SEO from "../components/SEO";
 
 const filters = ["All", "To Rent", "For Sale"];
 
@@ -74,6 +75,11 @@ export default function Properties() {
 
   return (
     <div className="pt-24 md:pt-28">
+      <SEO
+        title="Properties to Rent &amp; Buy in Birmingham"
+        description="Browse quality homes to rent and buy across Birmingham, managed by DND Living. View luxury apartments at The Cube, Eastside Apartments, and Birmingham city centre."
+        canonical="/properties"
+      />
       {/* HERO */}
       <section className="px-6 md:px-10 py-12 md:py-16 border-b border-line">
         <div className="max-w-[1400px] mx-auto">

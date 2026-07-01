@@ -7,10 +7,16 @@ import {
 } from "../data/group";
 import { PhoneCta } from "../components/PhoneLink";
 import FadeIn from "../components/FadeIn";
+import SEO from "../components/SEO";
 
 export default function Maintenance() {
   return (
     <div className="pt-24 md:pt-28">
+      <SEO
+        title="Property Maintenance Services in Birmingham"
+        description="Reliable property maintenance and repairs across Birmingham. DND Living handles everything from small fixes to full refurbishments. Fast response, fully insured."
+        canonical="/maintenance"
+      />
       {/* HERO */}
       <section className="px-6 md:px-10 py-12 md:py-16 border-b border-line">
         <div className="max-w-[1400px] mx-auto">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CONTACT } from "../data/group";
 import { PhoneLink } from "../components/PhoneLink";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -16,6 +17,11 @@ export default function Contact() {
 
   return (
     <div className="pt-28 md:pt-36 pb-20 md:pb-28">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with the DND Living team in Birmingham. Call, WhatsApp, or email us about properties, short lets, cleaning, or maintenance services."
+        canonical="/contact"
+      />
       <section className="px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12 md:gap-16">
           {/* Left */}

@@ -11,6 +11,7 @@ import {
 } from "../data/group";
 import { PhoneCta } from "../components/PhoneLink";
 import FadeIn from "../components/FadeIn";
+import SEO from "../components/SEO";
 
 function BeforeAfter({ item }) {
   const [showAfter, setShowAfter] = useState(false);
@@ -44,6 +45,11 @@ function BeforeAfter({ item }) {
 export default function Cleaning() {
   return (
     <div className="pt-24 md:pt-28">
+      <SEO
+        title="Professional Cleaning Services in Birmingham"
+        description="End of tenancy, deep clean, regular upkeep, and Airbnb turnarounds in Birmingham. Get an instant online quote from DND Living's professional cleaning team."
+        canonical="/cleaning"
+      />
       {/* HERO */}
       <section className="px-6 md:px-10 py-12 md:py-16 border-b border-line">
         <div className="max-w-[1400px] mx-auto">
