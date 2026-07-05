@@ -32,7 +32,13 @@ export default function Hub() {
       />
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center pt-32 pb-16 px-6 md:px-10 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-surface-low/40 to-background" />
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80"
+          alt="DND Living properties"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">
           <h1 className="font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mb-8 animate-fade-in text-on-dark">
             One group for your
@@ -40,8 +46,8 @@ export default function Hub() {
             <span className="font-extrabold">property, start to finish.</span>
           </h1>
           <p className="text-on-dark/70 text-base md:text-lg max-w-xl leading-relaxed animate-fade-in">
-            Four services under one roof — find a home, book a stay, get it cleaned,
-            and keep it maintained. Pick where you'd like to start.
+            Five services under one roof — find a home, book a stay, get it cleaned,
+            keep it maintained, and move with ease. Pick where you'd like to start.
           </p>
         </div>
       </section>
@@ -50,7 +56,7 @@ export default function Hub() {
       <section className="px-6 md:px-10 pb-20 md:pb-28">
         <div className="max-w-[1400px] mx-auto grid sm:grid-cols-2 gap-5">
           {arms.map((arm, i) => (
-            <FadeIn key={arm.id} delay={i * 100}>
+            <FadeIn key={arm.id} delay={i * 100} className={i === arms.length - 1 && arms.length % 2 !== 0 ? "sm:col-span-2" : ""}>
             <Link
               to={arm.to}
               className="group relative aspect-[16/10] md:aspect-[16/11] overflow-hidden border border-line hover:border-accent transition-colors block"

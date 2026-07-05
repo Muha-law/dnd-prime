@@ -17,18 +17,19 @@ export default function Nav() {
   useEffect(() => setMenuOpen(false), [location.pathname]);
 
   const solid = scrolled || !isHome;
-  const bg = solid ? "bg-background/95 border-b border-line" : "bg-transparent";
+  const bg = solid ? "glass-nav" : "bg-transparent";
 
   const links = [
     { to: "/properties", label: "Properties" },
     { to: "/stays", label: "Short Lets" },
     { to: "/cleaning", label: "Cleaning" },
     { to: "/maintenance", label: "Maintenance" },
+    { to: "/moving", label: "Moving" },
     { to: "/contact", label: "Contact" },
   ];
 
   return (
-    <nav className={"fixed top-0 left-0 right-0 z-50 backdrop-blur-[16px] transition-colors duration-300 " + bg}>
+    <nav className={"fixed top-0 left-0 right-0 z-50 transition-all duration-300 " + bg}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 md:py-5 flex items-center justify-between">
         <Link to="/" className="flex items-baseline gap-2 text-on-dark">
           <span className="font-extrabold text-2xl tracking-tight border-b-2 border-accent pb-0.5 leading-none">DND</span>

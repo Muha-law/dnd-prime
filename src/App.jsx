@@ -9,6 +9,7 @@ import Stays from "./pages/Stays";
 import PropertyDetail from "./pages/PropertyDetail";
 import Cleaning from "./pages/Cleaning";
 import Maintenance from "./pages/Maintenance";
+import Moving from "./pages/Moving";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -30,6 +31,7 @@ function PageRoutes() {
         <Route path="/stays/:id" element={<PropertyDetail />} />
         <Route path="/cleaning" element={<Cleaning />} />
         <Route path="/maintenance" element={<Maintenance />} />
+        <Route path="/moving" element={<Moving />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

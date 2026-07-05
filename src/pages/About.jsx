@@ -3,34 +3,30 @@ import SEO from "../components/SEO";
 
 export default function About() {
   return (
-    <div className="pt-28 md:pt-36">
+    <div>
       <SEO
         title="About DND Living"
         description="Meet DND Living — Birmingham's trusted team for property management, short lets, professional cleaning, and property maintenance. One team, four services."
         canonical="/about"
       />
-      {/* Intro */}
-      <section className="px-6 md:px-12 pb-16 md:pb-24">
-        <div className="max-w-[1400px] mx-auto">
-          <span className="font-mono text-label-md uppercase text-on-surface/40 block mb-4">
-            About DND Stays
+      {/* Intro hero */}
+      <section className="relative min-h-[65vh] flex items-end pb-16 pt-40 px-6 md:px-12 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&q=80"
+          alt="A DND Living managed home"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full">
+          <span className="font-mono text-label-md uppercase text-accent block mb-4">
+            About DND Living
           </span>
-          <h1 className="text-4xl md:text-6xl font-light leading-[1.08] max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-light leading-[1.08] max-w-4xl text-on-dark">
             We run homes the way
             <br />
             <span className="font-extrabold">we'd want to stay in them.</span>
           </h1>
-        </div>
-      </section>
-
-      {/* Image band */}
-      <section className="px-6 md:px-12 mb-16 md:mb-24">
-        <div className="max-w-[1400px] mx-auto aspect-[21/9] overflow-hidden bg-surface-low">
-          <img
-            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1920&q=80"
-            alt="A DND Stays managed living space"
-            className="w-full h-full object-cover"
-          />
         </div>
       </section>
 

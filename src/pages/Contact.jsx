@@ -16,24 +16,36 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-28 md:pt-36 pb-20 md:pb-28">
+    <div className="pb-20 md:pb-28">
       <SEO
         title="Contact Us"
         description="Get in touch with the DND Living team in Birmingham. Call, WhatsApp, or email us about properties, short lets, cleaning, or maintenance services."
         canonical="/contact"
       />
+
+      {/* HERO */}
+      <section className="relative min-h-[45vh] flex items-end pb-12 pt-36 px-6 md:px-12 overflow-hidden border-b border-line mb-16 md:mb-20">
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+          alt="DND Living team"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full">
+          <span className="font-mono text-label-md uppercase text-accent tracking-widest block mb-4">Contact</span>
+          <h1 className="text-4xl md:text-5xl font-light leading-tight text-on-dark">
+            Talk to the
+            <br />
+            <span className="font-extrabold">DND Living team.</span>
+          </h1>
+        </div>
+      </section>
+
       <section className="px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-12 md:gap-16">
           {/* Left */}
           <div className="md:col-span-5">
-            <span className="font-mono text-label-md uppercase text-on-dark/40 block mb-4">
-              Contact
-            </span>
-            <h1 className="text-4xl md:text-5xl font-light leading-tight mb-6">
-              Talk to the
-              <br />
-              <span className="font-extrabold">DND Stays team.</span>
-            </h1>
             <p className="text-body-md md:text-base text-on-dark/70 leading-relaxed mb-10 max-w-md">
               Looking for a specific home, a longer stay, or a corporate booking?
               Send a note or just open the chat in the corner and we'll reply right there.

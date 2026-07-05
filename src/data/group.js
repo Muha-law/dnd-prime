@@ -42,6 +42,14 @@ export const arms = [
     to: "/maintenance",
     image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200&q=80",
   },
+  {
+    id: "moving",
+    name: "DND Moving & Removal",
+    tag: "Removals & relocations",
+    blurb: "House moves, office relocations, man & van, and single-item collections — handled with care.",
+    to: "/moving",
+    image: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=80",
+  },
 ];
 
 // ---- CLEANING ----
@@ -141,4 +149,40 @@ export const maintenanceWhy = [
   "High-quality workmanship",
   "Competitive pricing",
   "Fully insured services",
+];
+
+// ---- MOVING & REMOVAL ----
+export const movingServices = [
+  { name: "House removals", desc: "Full home moves handled carefully, from packing to delivery." },
+  { name: "Office relocations", desc: "Seamless business moves with minimal downtime." },
+  { name: "Man & van", desc: "Fast, flexible transport for smaller loads and single items." },
+  { name: "Furniture moving", desc: "Safe collection and delivery of individual pieces." },
+  { name: "Packing & unpacking", desc: "We pack and label everything, so you don't have to." },
+  { name: "Student moves", desc: "Affordable, flexible moves for students across Birmingham." },
+  { name: "Long-distance removals", desc: "UK-wide removals with the same care as local jobs." },
+  { name: "End of tenancy clearances", desc: "Leave a property spotless and empty, ready for handover." },
+];
+
+export const movingAllServices = [
+  "House removals",
+  "Office & commercial relocations",
+  "Man and van",
+  "Furniture moving & delivery",
+  "Packing & unpacking",
+  "Single item collection",
+  "Student moves",
+  "Long-distance removals",
+  "End of tenancy clearances",
+  "Junk & rubbish removal",
+  "Storage solutions",
+  "Assembly & disassembly",
+];
+
+export const movingWhy = [
+  "Careful handling of all items",
+  "Fully insured service",
+  "Competitive, transparent pricing",
+  "Flexible scheduling",
+  "Professional, uniformed team",
+  "Residential & commercial moves",
 ];
