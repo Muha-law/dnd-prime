@@ -69,10 +69,10 @@ export function PhoneCta({ className = "" }) {
   useOutsideClick(ref, () => setOpen(false));
 
   return (
-    <span ref={ref} className={"relative inline-block " + className}>
+    <span ref={ref} className={"relative block w-full sm:inline-block sm:w-auto " + className}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="bg-accent text-on-surface px-8 py-4 text-body-md font-semibold hover:bg-accent-bright transition-colors whitespace-nowrap flex items-center gap-2"
+        className="w-full sm:w-auto bg-accent text-on-surface px-8 py-4 text-body-md font-semibold hover:bg-accent-bright transition-colors whitespace-nowrap flex items-center justify-center gap-2"
       >
         Call or WhatsApp
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
