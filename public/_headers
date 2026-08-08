@@ -1,0 +1,19 @@
+# Netlify cache headers.
+#
+# Vite fingerprints its own output (/assets/index-a1b2c3.js), so those are safe
+# to freeze forever. The image folders are not fingerprinted — filenames are
+# stable — so they get long-but-not-eternal caching instead.
+
+# Stock photography. Effectively frozen: these only change if someone swaps the
+# artwork, which is rare enough to be worth a manual filename bump.
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Property photos. Listings turn over, and a replaced 01.webp under an existing
+# folder must not be stuck behind a year-long cache — 30 days is the compromise.
+/properties/*
+  Cache-Control: public, max-age=2592000
+
+# Fingerprinted build output — the filename changes whenever the content does.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

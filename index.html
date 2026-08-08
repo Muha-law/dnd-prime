@@ -24,6 +24,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+    />
   </head>
   <body>
     <div id="root"></div>
@@ -31,14 +35,37 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/6a4578288c45b31d46f20c9b/1jsflqo4h';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+      // Deferred: Tawk.to pulls several hundred KB and its own iframe. Loading it
+      // during initial page load competes with our content for bandwidth. We wait
+      // for the page to finish loading, then for an idle moment — or load it
+      // immediately if the visitor interacts first (so the bubble is never late
+      // for someone actually reaching for it).
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      (function () {
+        var loaded = false;
+        function loadTawk() {
+          if (loaded) return;
+          loaded = true;
+          ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (evt) {
+            window.removeEventListener(evt, loadTawk);
+          });
+          var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = "https://embed.tawk.to/6a4578288c45b31d46f20c9b/1jsflqo4h";
+          s1.charset = "UTF-8";
+          s1.setAttribute("crossorigin", "*");
+          s0.parentNode.insertBefore(s1, s0);
+        }
+
+        ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (evt) {
+          window.addEventListener(evt, loadTawk, { passive: true, once: true });
+        });
+
+        window.addEventListener("load", function () {
+          if (window.requestIdleCallback) requestIdleCallback(loadTawk, { timeout: 3000 });
+          else setTimeout(loadTawk, 2000);
+        });
       })();
     </script>
     <!--End of Tawk.to Script-->
