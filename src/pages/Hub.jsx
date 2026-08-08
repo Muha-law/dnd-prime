@@ -57,11 +57,17 @@ export default function Hub() {
       {/* FOUR ARMS GRID */}
       <section className="px-6 md:px-10 pb-20 md:pb-28">
         <div className="max-w-[1400px] mx-auto grid sm:grid-cols-2 gap-5">
+          {/* Not wrapped in FadeIn: these five cards are the landing page's
+              primary content and the first thing a visitor looks for. The
+              odd-one-out span class moves onto the Link itself. */}
           {arms.map((arm, i) => (
-            <FadeIn key={arm.id} delay={i * 100} className={i === arms.length - 1 && arms.length % 2 !== 0 ? "sm:col-span-2" : ""}>
             <Link
+              key={arm.id}
               to={arm.to}
-              className="group relative aspect-[16/10] md:aspect-[16/11] overflow-hidden border border-line hover:border-accent transition-colors block"
+              className={
+                "group relative aspect-[16/10] md:aspect-[16/11] overflow-hidden border border-line hover:border-accent transition-colors block " +
+                (i === arms.length - 1 && arms.length % 2 !== 0 ? "sm:col-span-2" : "")
+              }
             >
               <img
                 src={arm.image}
@@ -82,7 +88,6 @@ export default function Hub() {
                 </span>
               </div>
             </Link>
-            </FadeIn>
           ))}
         </div>
       </section>

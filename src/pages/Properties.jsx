@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { estateListings } from "../data/properties";
-import FadeIn from "../components/FadeIn";
 import SEO from "../components/SEO";
 
 const filters = ["To Rent", "For Sale"];
@@ -136,9 +135,11 @@ export default function Properties() {
           )}
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {list.map((p, i) => (
-              <FadeIn key={p.id} delay={i * 100}>
-              <Link to={`/properties/${p.id}`} className="group block bg-surface border border-line hover:border-accent transition-colors h-full">
+            {/* Deliberately not wrapped in FadeIn. These listings are the whole
+                point of the page and sit above the fold — a reveal animation
+                buys nothing and delays the only content anyone came for. */}
+            {list.map((p) => (
+              <Link key={p.id} to={`/properties/${p.id}`} className="group block bg-surface border border-line hover:border-accent transition-colors h-full">
                 <div className="relative">
                   <CardCarousel images={p.images} alt={p.name} />
                   {p.letAgreed ? (
@@ -157,7 +158,6 @@ export default function Properties() {
                   </div>
                 </div>
               </Link>
-              </FadeIn>
             ))}
           </div>
         </div>
