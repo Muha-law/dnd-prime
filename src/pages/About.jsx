@@ -12,10 +12,12 @@ export default function About() {
       {/* Intro hero */}
       <section className="relative min-h-[65vh] flex items-end pb-16 pt-40 px-6 md:px-12 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&q=80"
+          src="/images/stays.webp"
           alt="A DND Living managed home"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">

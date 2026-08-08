@@ -16,7 +16,7 @@ export const arms = [
     tag: "Buy, rent & manage",
     blurb: "Quality homes to rent and buy, fully managed by a team that answers for every property.",
     to: "/properties",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80",
+    image: "/images/properties.webp",
   },
   {
     id: "stays",
@@ -24,7 +24,7 @@ export const arms = [
     tag: "Serviced apartments",
     blurb: "Move-in ready apartments for a night, a month, or a season. Booked and supported on-site.",
     to: "/stays",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80",
+    image: "/images/stays.webp",
   },
   {
     id: "cleaning",
@@ -32,7 +32,7 @@ export const arms = [
     tag: "Professional cleaning",
     blurb: "Standard to deep cleans, end of tenancy, and Airbnb turnarounds. Before-and-after on every job.",
     to: "/cleaning",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80",
+    image: "/images/cleaning.webp",
   },
   {
     id: "maintenance",
@@ -40,7 +40,7 @@ export const arms = [
     tag: "Property repairs",
     blurb: "One call for all your maintenance needs, from plumbing and electrics to full property upkeep.",
     to: "/maintenance",
-    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1200&q=80",
+    image: "/images/maintenance.webp",
   },
   {
     id: "moving",
@@ -48,7 +48,7 @@ export const arms = [
     tag: "Removals & relocations",
     blurb: "House moves, office relocations, man & van, and single-item collections — handled with care.",
     to: "/moving",
-    image: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=80",
+    image: "/images/moving.webp",
   },
 ];
 
@@ -89,18 +89,18 @@ export const cleaningQuoteExtras = [
 export const cleaningGallery = [
   {
     room: "Kitchen",
-    before: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800&q=80",
+    before: "/images/cleaning-kitchen-before.webp",
+    after: "/images/cleaning-kitchen-after.webp",
   },
   {
     room: "Bathroom",
-    before: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80",
+    before: "/images/cleaning-bathroom-before.webp",
+    after: "/images/cleaning-bathroom-after.webp",
   },
   {
     room: "Living room",
-    before: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+    before: "/images/cleaning-living-before.webp",
+    after: "/images/cleaning-living-after.webp",
   },
 ];
 

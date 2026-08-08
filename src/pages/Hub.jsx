@@ -33,10 +33,12 @@ export default function Hub() {
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center pt-32 pb-16 px-6 md:px-10 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80"
+          src="/images/properties.webp"
           alt="DND Living properties"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">
