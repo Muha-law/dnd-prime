@@ -4,7 +4,7 @@ import { estateListings } from "../data/properties";
 import FadeIn from "../components/FadeIn";
 import SEO from "../components/SEO";
 
-const filters = ["All", "To Rent", "For Sale"];
+const filters = ["To Rent", "For Sale"];
 
 function CardCarousel({ images, alt }) {
   const [idx, setIdx] = useState(0);
@@ -70,8 +70,8 @@ function CardCarousel({ images, alt }) {
 }
 
 export default function Properties() {
-  const [deal, setDeal] = useState("All");
-  const list = estateListings.filter((p) => deal === "All" || p.deal === deal);
+  const [deal, setDeal] = useState(filters[0]);
+  const list = estateListings.filter((p) => p.deal === deal);
 
   return (
     <div className="pt-24 md:pt-28">
@@ -120,6 +120,21 @@ export default function Properties() {
           <p className="font-mono text-label-md uppercase text-on-dark/40 mb-8">
             {list.length} {list.length === 1 ? "property" : "properties"} available
           </p>
+          {list.length === 0 && (
+            <div className="border border-line p-10 md:p-14 text-center">
+              <p className="text-body-md md:text-lg text-on-dark/60 mb-6">
+                Nothing {deal.toLowerCase()} right now — but stock moves quickly.
+                Tell us what you're after and we'll get in touch when it lands.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-block bg-accent text-on-surface px-8 py-4 text-body-md font-semibold hover:bg-accent-bright transition-colors"
+              >
+                Register your interest
+              </Link>
+            </div>
+          )}
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {list.map((p, i) => (
               <FadeIn key={p.id} delay={i * 100}>
