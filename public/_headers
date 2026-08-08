@@ -17,3 +17,12 @@
 # Fingerprinted build output — the filename changes whenever the content does.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# The HTML must never be cached. It is the only file that names the current
+# chunk filenames, so a stale copy sends visitors after chunks that no longer
+# exist — which is precisely the blank-page-until-refresh failure that
+# ChunkErrorBoundary exists to recover from. Don't let it start here.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
