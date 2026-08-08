@@ -53,10 +53,12 @@ export default function Cleaning() {
       {/* HERO */}
       <section className="relative min-h-[70vh] flex items-end pb-16 pt-40 px-6 md:px-10 overflow-hidden border-b border-line">
         <img
-          src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80"
+          src="/images/cleaning.webp"
           alt="Professional cleaning service"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         <div className="relative z-10 max-w-[1400px] mx-auto w-full">
